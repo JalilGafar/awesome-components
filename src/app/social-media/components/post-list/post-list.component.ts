@@ -13,13 +13,18 @@ export class PostListComponent implements OnInit {
 
   posts$!: Observable<Post[]>;
 
+  name!: { firstName:string, lastName: string};
+
   constructor(private route: ActivatedRoute,
               private postService: PostService ) { }
 
   ngOnInit(): void {
     this.posts$ = this.route.data.pipe(
       map(data => data['posts'])
-    )
+    );
+
+    this.name = {firstName: 'Faonda', lastName: 'Jalil'}
+
   };
 
   onPostCommented(postCommented:{ comment: string, postId: number}){

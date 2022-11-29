@@ -1,4 +1,5 @@
 <h2>Posts</h2>
+<h3>{{name | namecase}} </h3>
 <app-post-list-item *ngFor="let posti of posts$ | async "  
                     [post]= "posti"
                     (postCommented)="onPostCommented($event)">
