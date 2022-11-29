@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { Post } from 'src/app/core/models/post.model';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-post-list',
@@ -12,12 +13,17 @@ export class PostListComponent implements OnInit {
 
   posts$!: Observable<Post[]>;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private postService: PostService ) { }
 
   ngOnInit(): void {
     this.posts$ = this.route.data.pipe(
       map(data => data['posts'])
     )
+  };
+
+  onPostCommented(postCommented:{ comment: string, postId: number}){
+    this.postService.addNewcomment(postCommented);
   }
 
 }
