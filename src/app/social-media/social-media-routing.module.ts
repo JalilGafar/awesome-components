@@ -4,7 +4,7 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { PostResolver } from './resolvers/posts.resolver';
 
 const routes: Routes = [
-  { path: '', component: PostListComponent, resolve: { posts: PostResolver} }
+  { path: '', component: PostListComponent, resolve: { postsr: PostResolver} }
 ];
 
 @NgModule({

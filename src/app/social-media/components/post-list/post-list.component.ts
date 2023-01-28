@@ -20,7 +20,7 @@ export class PostListComponent implements OnInit {
 
   ngOnInit(): void {
     this.posts$ = this.route.data.pipe(
-      map(data => data['posts'])
+      map(data => data['postsr'])
     );
 
     this.name = {firstName: 'Faonda', lastName: 'Jalil'}
